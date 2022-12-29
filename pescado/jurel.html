@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPRESA KONTIKI</title>
+    <!-- link de css -->
+    <link rel="stylesheet" href="pescado.css">
+    <!-- link del icono -->
+    <link rel="icon" href="../assets/icon.svg">
+    <!-- link del cdn iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <!-- link de swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+</head>
+<body>
+    
+    <div class="grid-container">
+        <!-- header start -->
+        <header class="header">
+          <div class="container">
+            <div class="header-main">
+              <div class="logo">
+                <a href="../index.html"><img src="../images/logo.png" alt="" /></a>
+                <a href="../index.html">KONTIKI</a>
+              </div>
+              <div class="open-nav-menu">
+                <span></span>
+              </div>
+              <div class="menu-overlay"></div>
+              <!-- navigation menu start -->
+              <nav class="nav-menu">
+                <div class="close-nav-menu">
+                  <img src="../assets/close.svg" alt="close" />
+                </div>
+                <ul class="menu">
+                  <li class="menu-item">
+                    <a href="../index.html">inicio</a>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="../productos/productos.html" data-toggle="sub-menu">productos</a>
+                  </li>
+                  
+                  <li class="menu-item">
+                    <a href="#">sobre nosotros</a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- navigation menu end -->
+            </div>
+          </div>
+        </header>
+        <!-- header end -->
+  
+        
+        <!-- slider start -->
+      <div class="datos">
+        <div class="contenedor-datos">
+            <div class="portada">
+                <img src="../images/caba11.png" alt="">
+            </div>
+            
+            <!-- <div class="sinopsis">
+                <p>Después de "Capitán América: Guerra Civil", Scott Lang lidia con las consecuencias de sus elecciones como superhéroe y padre. Mientras lucha por mantener un equilibrio entre su vida hogareña y sus responsabilidades como Ant-Man, se enfrenta a Hope van Dyne y al Dr. Hank Pym con una nueva misión urgente....</p>
+            </div> -->
+            <div class="extras">
+                <div class="titulo">
+                    <h1>Jurel</h1>
+                </div>
+                <p> <span>NOMBRE CIENTÍFICO: </span> Trachurus picturatus murphyi. </p>
+                <p> <span>Presentación: </span>  Caja x 20 Kg / 01 Bloque x 20 Kg </p>
+                <p> <span>Textura: </span>  Firme </p>
+                <p> <span>Vida útil: </span>  24 meses </p>
+                <p> <span>Almacenamiento: </span>  - 18º C o menor </p>
+                <p> <span>Zona de captura: </span>  Océano Pacifico FAO 87 </p>
+                <p> <span>Origen: </span>  Perú </p>
+            </div>
+        </div>
+      </div>
+      <!-- slider end -->
+      
+   
+      <!-- estrenos start -->
+      <div class="ver-peli">
+         
+         <div class="main-content">
+            
+            <div class="responsive">
+               <!-- <IFRAME SRC="https://api.mycdn.moe/video/tt5095030/" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=640 HEIGHT=360 allowfullscreen></IFRAME> -->
+               <!-- <iframe src="https://joselo999.github.io/real-pruebaa/" frameborder="0" ></iframe> -->
+               <div id="smart-button-container">
+                <div style="text-align: center;">
+                  <div style="margin-bottom: 1.25rem;">
+                    <p>pecado</p>
+                    <select id="item-options"><option value="12 peces a 1sol" price="100">12 peces a 1sol - 100 USD</option><option value="24 pecados a 2 soles" price="100">24 pecados a 2 soles - 100 USD</option><option value="dos cajas a  200 sooles " price="200">dos cajas a  200 sooles  - 200 USD</option></select>
+                    <select style="visibility: hidden" id="quantitySelect"></select>
+                  </div>
+                <div id="paypal-button-container"></div>
+                </div>
+              </div>
+              <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+              <script>
+                function initPayPalButton() {
+                  var shipping = 5;
+                  var itemOptions = document.querySelector("#smart-button-container #item-options");
+              var quantity = parseInt();
+              var quantitySelect = document.querySelector("#smart-button-container #quantitySelect");
+              if (!isNaN(quantity)) {
+                quantitySelect.style.visibility = "visible";
+              }
+              var orderDescription = 'pecado';
+              if(orderDescription === '') {
+                orderDescription = 'Item';
+              }
+              paypal.Buttons({
+                style: {
+                  shape: 'pill',
+                  color: 'blue',
+                  layout: 'vertical',
+                  label: 'paypal',
+                  
+                },
+                createOrder: function(data, actions) {
+                  var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+                  var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
+                  var tax = (18 === 0 || false) ? 0 : (selectedItemPrice * (parseFloat(18)/100));
+                  if(quantitySelect.options.length > 0) {
+                    quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
+                  } else {
+                    quantity = 1;
+                  }
+            
+                  tax *= quantity;
+                  tax = Math.round(tax * 100) / 100;
+                  var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
+                  priceTotal = Math.round(priceTotal * 100) / 100;
+                  var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
+            
+                  return actions.order.create({
+                    purchase_units: [{
+                      description: orderDescription,
+                      amount: {
+                        currency_code: 'USD',
+                        value: priceTotal,
+                        breakdown: {
+                          item_total: {
+                            currency_code: 'USD',
+                            value: itemTotalValue,
+                          },
+                          shipping: {
+                            currency_code: 'USD',
+                            value: shipping,
+                          },
+                          tax_total: {
+                            currency_code: 'USD',
+                            value: tax,
+                          }
+                        }
+                      },
+                      items: [{
+                        name: selectedItemDescription,
+                        unit_amount: {
+                          currency_code: 'USD',
+                          value: selectedItemPrice,
+                        },
+                        quantity: quantity
+                      }]
+                    }]
+                  });
+                },
+                onApprove: function(data, actions) {
+                  return actions.order.capture().then(function(orderData) {
+                    
+                    // Full available details
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            
+                    // Show a success message within this page, e.g.
+                    const element = document.getElementById('paypal-button-container');
+                    element.innerHTML = '';
+                    element.innerHTML = '<h3>!gracias por comprar! <3 </h3>';
+            
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+            
+                  });
+                },
+                onError: function(err) {
+                  console.log(err);
+                },
+              }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+              </script>
+
+            </div>
+
+         </div>
+
+      </div>
+      <!-- strenos end -->
+
+
+      <!-- footer start -->
+      <div class="footer">
+
+         <!-- <div class="box-container">
+            
+            <div class="box" data-aos="fade-up" data-aos-delay="450">
+               <h3 class="txt-dato">Datos de contacto</h3>
+               <a class="link" href="tel: +51916099300"> <i class="fas fa-phone"></i> +51 999 999 999 </a>
+               <a class="link" href="#"> <i class="fas fa-envelope"></i> 999@gmail.com </a>
+            </div>
+      
+            <div class="box txt-dato" data-aos="fade-up" data-aos-delay="600">
+               <h3>redes sociales</h3>
+               
+               <div class="share txt-dato">
+                  <a href="#" class="fab fa-facebook-f"></a>
+                  <a href="#" class="fab fa-instagram"></a>
+               </div>
+            </div>
+      
+         </div> -->
+      
+         <p class="credit"> Created By <span>Strange.dev</span> | ¡tu eres una enferma y este bicho es el único que te va a curar! </p>
+
+      </div>
+      <!-- footer end -->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="pescado.js"></script>
+</body>
+</html>
