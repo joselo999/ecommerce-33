@@ -215,7 +215,7 @@ a{
 
 	grid-template: 
 	"header" auto
-	"txt-estrenos" 50px
+	"txt-estrenos" auto
 	"peli-estrenos" auto
 	"footer"	auto /
 	auto;
