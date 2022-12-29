@@ -245,6 +245,19 @@ a{
     gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
+@media (max-width: 768px) {
+	.grid-container-pelis {
+		background-color: #1d3557;
+		text-align: center;
+		margin-top: 20px;
+		margin-left: 0;
+		margin-right: 0;
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	}
+	
+}
 
 .grid-container-pelis > div {
     /* background-color: #5F9DF7; */
